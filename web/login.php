@@ -12,7 +12,7 @@
         }
         $username=trim($_POST['username']);
         $password=trim($_POST['password']);
-        if(!$this->CheckLoginDB($username,$password))
+        if(!$this->CheckUsersDB($username,$password))
         {
         return false;
         }
@@ -21,9 +21,9 @@
         return true;
         }
         
-        function CheckLoginDB($username,$password)
+        function CheckUsersDB($username,$password)
         {
-        if(!$this->DBLogin())
+        if(!$this->DBUsers())
         {
         $this->HandleError("Ingen kontakt med server.");
         return false;
